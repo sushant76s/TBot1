@@ -1,11 +1,11 @@
 import telebot
 from flask import Flask, request
 import os
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 # TOKEN = os.getenv(API_KEY)
-TOKEN = os.getenv("API_KEY")
+TOKEN = os.getenv["API_KEY"]
 bot = telebot.TeleBot(token=TOKEN)
 server = Flask(__name__)
 
@@ -47,7 +47,7 @@ def getMessage():
 def webhook():
     bot.remove_webhook()
     bot.set_webhook(url='https://telegrambot-bot1.herokuapp.com/' + TOKEN)
-    return "!", 200
+    return "Everything is working fine!", 200
 
 
 if __name__ == "__main__":
