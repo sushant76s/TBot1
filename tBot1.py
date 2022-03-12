@@ -32,7 +32,7 @@ def at_converter(message):
         insta_link = "https://instagram.com/{}".format(at_text[1:])
         bot.reply_to(message, insta_link)
 
-@server.route('/' + str(TOKEN), methods=['POST'])
+@server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
     json_string = request.get_data().decode('utf-8')
     update = telebot.types.Update.de_json(json_string)
