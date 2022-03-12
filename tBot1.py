@@ -1,8 +1,11 @@
 import telebot
 from flask import Flask, request
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-TOKEN = os.getenv(API_KEY)
+# TOKEN = os.getenv(API_KEY)
+TOKEN = os.getenv("API_KEY")
 bot = telebot.TeleBot(token=TOKEN)
 server = Flask(__name__)
 
