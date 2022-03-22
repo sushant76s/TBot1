@@ -23,6 +23,22 @@ def send_welcome(message):
 def send_welcome(message):
     bot.reply_to(message, 'I will update the commands soon stay tune...')
 
+# code to schedule timer
+def beep(chat_id) -> None:
+    """Send the beep message."""
+    bot.send_message(chat_id, text='Beep!')
+@bot.message_handler(commands=['set'])
+def set_timer(message):
+    args = message.text.split()
+    if len(args) > 1 and args[1].isdigit():
+        sec = int(args[1])
+        schedule.every(sec).second.do(beep, message.chat.id).tag(message.chat.id)
+    else:
+        bot.reply_to(message, 'Usages: /set <seconds>')
+@bot.message_handler(commands=['unset'])
+def unset_timer(message):
+    schedule.clear(message.chat.id)
+
 @bot.message_handler(func=lambda m: True)
 def repeat(message):
     bot.send_message(message.chat.id, message.text)
