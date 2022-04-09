@@ -29,6 +29,10 @@ def send_welcome(message):
 def send_welcome(message):
     bot.reply_to(message, 'What do you want to send ?')
 
+@bot.message_handler(commands=['gfg']) # help message handler
+def send_welcome(message):
+    bot.reply_to(message, 'Welcome to geeks for geeks ')
+
 # code to schedule timer
 def beep(chat_id) -> None:
     """Send the beep message."""
