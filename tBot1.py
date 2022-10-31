@@ -51,7 +51,7 @@ def unset_timer(message):
 
 @bot.message_handler(func=lambda m: True)
 def repeat(message):
-    bot.send_message(message.chat.id, message.text)
+    bot.send_message(message.chat.id, "Hello, World!")
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
 # lambda function finds messages with the '@' sign in them
