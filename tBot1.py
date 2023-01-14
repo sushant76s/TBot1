@@ -76,7 +76,8 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://telegrambot-bot1.herokuapp.com/' + TOKEN)
+#     bot.set_webhook(url='https://telegrambot-bot1.herokuapp.com/' + TOKEN)
+    bot.set_webhook(url='https://tbo1.up.railway.app/' + TOKEN)
     return "Everything is working fine!", 200
 
 
